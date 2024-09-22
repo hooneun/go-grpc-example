@@ -1,0 +1,37 @@
+// Protocol Buffers 버전
+syntax = "proto3";
+
+// 프로토콜 네임스페이스
+// 다른 프로젝트와의 충동을 방지
+package calculator;
+
+// Go 패키지 이름 설정
+option go_package = "calculator/calculatorpb";
+
+// gRPC 서비스 정의
+service CalculatorService {
+  rpc Add(AddRequest) returns (AddResponse) {}
+  rpc Sub(SubRequest) returns (SubResponse) {}
+}
+
+// Add 요청 값
+message AddRequest {
+  int64 num1 = 1;
+  int64 num2 = 2;
+}
+
+// Add 반환 값
+message AddResponse {
+  int64 result = 1;
+}
+
+// Sub 요청 값
+message SubRequest {
+  int64 num1 = 1;
+  int64 num2 = 2;
+}
+
+// Sub 반환 값
+message SubResponse {
+  int64 result = 1;
+}
